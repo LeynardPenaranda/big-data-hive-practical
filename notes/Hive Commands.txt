@@ -1,0 +1,74 @@
+# For hive Properties, where we got the username and password in here
+> vi /etc/hive/conf/hive-site.xml
+
+# Check hive version
+> hive --version 
+
+# Open hive in the terminal
+> hive
+
+(inside terminal)
+
+# show all databases
+> show databases; 
+
+# Create database with a name ecommerce
+> create database ecommerce;
+
+
+
+
+# Another way to run hive, also in terminal (Recommended) for its security and multiple concurrent sessions
+> beeline 
+
+# but first we must connect beeline to the Hive server
+> !connect jdbc:hive2://localhost:10000/default # To connect to Hive Server, This can be vary in different settings or company 
+
+# This shows the application type of the hive (default tez)
+> set hive.execution.engine;
+
+# Change the application type of the hive to spark
+> set hive.execution.engine = spark; # Note: changing the application type to MapReduce or mr will give an error in hive cli but not in beeline. But it is not recommended using mr since it is already deprecated.
+
+# This clear the terminal in hive CLI and beeline CLI
+> ctrl + l
+
+
+# This uses the database
+> show databases;
+> use database <db.-name>
+
+# Create a table
+
+> create table customers (
+customer_id INT,
+name STRING,
+city STRING,
+state STRING,
+country STRING,
+registration_date STRING,
+is_active BOOLEAN
+)
+ROW FORMAT DELIMITED
+FIELDS TERMINATED By ','
+STORED AS TEXTFILE;
+
+# Inserting new row in the table in hive
+insert into customers value(<insert data here>) # Note: This will take a lot of time since hive is not made for CRUD operations but only for storing data since it is a data warehouse
+
+
+<----------------- Accessing Metadata -------------------------->
+
+# To open mysql 
+> mysql -u hive -p
+>Enter password: <Enter your password taken from conf file at vi /etc/hive/conf/hive-site.xml >
+
+# OR if faces issue accesing mysql above then do the steps below
+
+> sudo systemctl stop mysql
+> sudo mysqld_safe --skip--grant-tables & mysql -u root
+
+# if did not work after stopping the mysql then start it again
+> sudo systemctl start mysql
+
+
