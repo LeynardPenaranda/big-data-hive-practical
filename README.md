@@ -5,7 +5,6 @@ This collection of hands-on exercises and practical examples demonstrates how to
 
 This project is aimed at helping you understand:
 
-- 📂 Hive Setup and Configuration  
 - 🧑‍💻 Querying with HiveQL (HQL)  
 - 🔄 Data Management in Hive  
 - 📊 CRUD Operations in Hive  
