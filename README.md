@@ -7,8 +7,7 @@ This project is aimed at helping you understand:
 
 - 🧑‍💻 Querying with HiveQL (HQL)  
 - 🔄 Data Management in Hive  
-- 📊 CRUD Operations in Hive  
-- 🛠️ Integration of Hive with Other Tools  
+- 📊 CRUD Operations in Hive    
 
 ---
 
